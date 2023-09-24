@@ -46,12 +46,23 @@ public class TMP : MonoBehaviour
     void UpdateMethodOne1(GstuSpreadSheet ss)
     {
         int num = ss.rows.secondaryKeyLink.Count-1;
-
-        for(int idx = 0; idx < num; idx++)
+        try
         {
-            data1.UpdateStats(ss.rows[idx.ToString()], idx.ToString());
+            for (int idx = 0; idx < num; idx++)
+            {
+                data1.UpdateStats(ss.rows[idx.ToString()], idx.ToString());
+            }
         }
-
+        catch
+        (Exception e)
+        {
+            return;
+        }
+        finally
+        {
+            GameManager.InGameData.Clear();
+            GameManager.UI.ShowPopupUI<SelectionPopup>();
+        }
 
     }
 
@@ -79,7 +90,6 @@ public class TMP : MonoBehaviour
         }
         finally
         {
-            //GameManager.UI.ShowPopupUI<SelectionPopup>();
         }
 
     }

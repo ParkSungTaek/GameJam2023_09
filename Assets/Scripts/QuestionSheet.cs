@@ -25,7 +25,7 @@ public class QuestionSheet : ScriptableObject
                 case "Script":
                     {
                         GameManager.InGameData.QuestionDictionary[QuestionIDX] = list[i].value;
-                        //Debug.Log($"{QuestionIDX}ÀÇ {list[i].value}");
+                        Debug.Log($"{QuestionIDX}ÀÇ {list[i].value}");
                         break;
 
                     }
@@ -38,9 +38,5 @@ public class QuestionSheet : ScriptableObject
     }
 
 }
-class Question 
-{
-    public int QuestionIDX;
-    public string Script;
-}
+
 

@@ -7,7 +7,7 @@ using UnityEngine;
 public class InGameDataManager
 {
 
-    public List<int> UseableQuestion = new List<int>();
+    public List<int> UseableQuestion;
 
 
     public Dictionary<string, string> QuestionDictionary = new Dictionary<string, string>();
@@ -44,8 +44,12 @@ public class InGameDataManager
     public void Clear()
     {
         System.Random rand = new System.Random();
-        List<int> numbers = Enumerable.Range(0, QuestionDictionary.Count).ToList();
-        numbers = numbers.OrderBy(x => rand.Next()).ToList();
+        UseableQuestion = Enumerable.Range(0, QuestionDictionary.Count).ToList();
+        UseableQuestion = UseableQuestion.OrderBy(x => rand.Next()).ToList();
+        for(int i =0;i< UseableQuestion.Count; i++)
+        {
+            Debug.Log(UseableQuestion[i]);
+        }
 
     }
 }
