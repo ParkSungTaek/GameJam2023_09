@@ -7,8 +7,22 @@ namespace Client
 {
     public class InGameDataManager
     {
+
+
+        public Dictionary<string, string> QuestionDictionary = new Dictionary<string, string>();
         
-        /// <summary> InGameData 게임 시작시 초기화</summary>
+        public Dictionary<string, Dictionary<string, List<Answer>>> AnswerDictionary = new Dictionary<string, Dictionary<string, List<Answer>>>();
+
+        public class Answer 
+        {
+            public string Gender;
+            public string Person;
+            public string Face;
+            public string Script;
+        }
+
+
+        // <summary> InGameData 게임 시작시 초기화</summary>
         public void Init()
         {
             

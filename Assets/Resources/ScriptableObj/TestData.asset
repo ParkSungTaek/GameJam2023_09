@@ -13,9 +13,6 @@ MonoBehaviour:
   m_Name: TestData
   m_EditorClassIdentifier: 
   associatedSheet: 11sLaLqHhhGra_YN2hXqnPrCad-pPi3MyTTFmGK7Bd8U
-  associatedWorksheet: Sheet1
-  items: []
-  Names:
-  - Jim
-  - Jay
-  - Jack
+  associatedWorksheet: QuesionSheet
+  Script: []
+  QuestionIDX: 

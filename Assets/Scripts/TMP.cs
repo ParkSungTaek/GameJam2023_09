@@ -10,19 +10,19 @@ using GoogleSheetsToUnity.ThirdPary;
 
 #if UNITY_EDITOR
 using UnityEditor;
-#endif
+#endif 
 
 public class TMP : MonoBehaviour
 {
-    TestData data;
+    QuestionSheet data;
     // Start is called before the first frame update
     void Start()
     {
-        data = Resources.Load<TestData>("ScriptableObj/TestData");
+        data = Resources.Load<QuestionSheet>("ScriptableObj/TestData");
         if(data != null)
         {
             Debug.Log("GET");
-            //Run();
+            Run();
         }
         else
         {
@@ -40,8 +40,14 @@ public class TMP : MonoBehaviour
 
     void UpdateMethodOne(GstuSpreadSheet ss)
     {
-        foreach (string dataName in data.Names)
-            data.UpdateStats(ss.rows[dataName], dataName);
+        int num = ss.rows.secondaryKeyLink.Count-1;
+
+        for(int idx = 0; idx < num; idx++)
+        {
+            data.UpdateStats(ss.rows[idx.ToString()], idx.ToString());
+        }
+
+            
     }
 
 }

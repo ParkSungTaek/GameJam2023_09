@@ -10,19 +10,13 @@ public class UI_GameScene : UI_Scene
 {
     enum GameObjects
     {
-        joystickBG,
-        joystickHandle,
     }
     enum Buttons
     {
-        AttackBtn,
-        SkillBtn,
-        ItemBtn,
+        Option,
     }
     enum Texts
     {
-        MoneyTxt,
-        ScoreTxt
     }
 
     public override void Init()
@@ -43,9 +37,13 @@ public class UI_GameScene : UI_Scene
     #region Buttons
     void ButtonBind()
     {
-        //BindEvent(GetButton((int)Buttons.AttackBtn).gameObject, Btn_Attack);
-    }
+        BindEvent(GetButton((int)Buttons.Option).gameObject, Btn_Option);
 
+    }
+    void Btn_Option(PointerEventData evt)
+    {
+        GameManager.UI.ShowPopupUI<OptionPopup>();
+    }
 
     #endregion Buttons
 
