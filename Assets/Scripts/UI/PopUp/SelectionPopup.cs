@@ -28,7 +28,7 @@ public class SelectionPopup : UI_Popup
     // Start is called before the first frame update
     void Start()
     {
-        Init();
+        //Init();
     }
 
 
@@ -37,6 +37,7 @@ public class SelectionPopup : UI_Popup
         base.Init();
         Bind<Button>(typeof(Buttons));
         Bind<TMP_Text>(typeof(Texts));
+
         data = GameManager.InGameData;
         Txt_Setting();
         BindEventBtn();

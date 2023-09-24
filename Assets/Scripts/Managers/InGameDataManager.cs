@@ -46,11 +46,7 @@ public class InGameDataManager
         System.Random rand = new System.Random();
         UseableQuestion = Enumerable.Range(0, QuestionDictionary.Count).ToList();
         UseableQuestion = UseableQuestion.OrderBy(x => rand.Next()).ToList();
-        for(int i =0;i< UseableQuestion.Count; i++)
-        {
-            Debug.Log(UseableQuestion[i]);
-        }
-
+        
     }
 }
 
