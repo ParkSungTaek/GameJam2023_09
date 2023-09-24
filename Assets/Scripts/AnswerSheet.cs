@@ -22,7 +22,7 @@ public class AnswerSheet : ScriptableObject
     internal void UpdateStats(List<GSTU_Cell> list)
     {
 
-        Client.InGameDataManager.Answer answer = new Client.InGameDataManager.Answer();
+        InGameDataManager.Answer answer = new InGameDataManager.Answer();
         bool Empty = false;
         for (int i = 0; i < list.Count; i++)
         {
@@ -32,7 +32,7 @@ public class AnswerSheet : ScriptableObject
                     {
                         if (!GameManager.InGameData.AnswerDictionary.ContainsKey(list[i].value))
                         {
-                            GameManager.InGameData.AnswerDictionary[list[i].value] = new Dictionary<string, List<Client.InGameDataManager.Answer>>();
+                            GameManager.InGameData.AnswerDictionary[list[i].value] = new Dictionary<string, List<InGameDataManager.Answer>>();
                             if(list[i].value != "")
                             {
                                 QuestionIDX = list[i].value;
@@ -48,7 +48,7 @@ public class AnswerSheet : ScriptableObject
                             AnswerIDX = list[i].value;
                             if (!GameManager.InGameData.AnswerDictionary[QuestionIDX].ContainsKey(AnswerIDX))
                             {
-                                GameManager.InGameData.AnswerDictionary[QuestionIDX][AnswerIDX] = new List<Client.InGameDataManager.Answer>();
+                                GameManager.InGameData.AnswerDictionary[QuestionIDX][AnswerIDX] = new List<InGameDataManager.Answer>();
                             }
                         }
                         break;

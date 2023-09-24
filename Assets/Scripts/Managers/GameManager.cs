@@ -44,6 +44,10 @@ public class GameManager : MonoBehaviour
 
     }
    
+    public void GameStart()
+    {
+        InGameData.Clear();
+    }
     /// <summary> 모든 정보 초기화 </summary>
     public static void Clear()
     {

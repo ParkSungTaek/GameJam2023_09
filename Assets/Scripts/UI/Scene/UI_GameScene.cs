@@ -10,6 +10,7 @@ public class UI_GameScene : UI_Scene
 {
     enum GameObjects
     {
+
     }
     enum Buttons
     {
@@ -17,6 +18,7 @@ public class UI_GameScene : UI_Scene
     }
     enum Texts
     {
+
     }
 
     public override void Init()
@@ -43,6 +45,11 @@ public class UI_GameScene : UI_Scene
     void Btn_Option(PointerEventData evt)
     {
         GameManager.UI.ShowPopupUI<OptionPopup>();
+    }
+    public void PlayList(int QuestionIDX)
+    {
+
+        Debug.Log(QuestionIDX);
     }
 
     #endregion Buttons

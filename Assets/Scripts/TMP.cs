@@ -65,12 +65,22 @@ public class TMP : MonoBehaviour
         int num = ss.rows.secondaryKeyLink.Count - 1;
         Debug.Log(num);
 
-        for (int idx = 0; idx < num; idx++)
+        try
         {
+            for (int idx = 0; idx < num; idx++)
+            {
+                data2.UpdateStats(ss.rows[idx.ToString()]);
 
-            data2.UpdateStats(ss.rows[idx.ToString()]);
+            }
         }
-
+        catch
+        {
+            return;
+        }
+        finally
+        {
+            //GameManager.UI.ShowPopupUI<SelectionPopup>();
+        }
 
     }
 
