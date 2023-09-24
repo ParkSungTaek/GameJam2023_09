@@ -14,12 +14,15 @@ using UnityEditor;
 
 public class TMP : MonoBehaviour
 {
-    QuestionSheet data;
+    QuestionSheet data1;
+    AnswerSheet data2;
     // Start is called before the first frame update
     void Start()
     {
-        data = Resources.Load<QuestionSheet>("ScriptableObj/TestData");
-        if(data != null)
+        data1 = Resources.Load<QuestionSheet>("ScriptableObj/TestData");
+        data2 = Resources.Load<AnswerSheet>("ScriptableObj/AnswerSheet");
+
+        if (data2 != null)
         {
             Debug.Log("GET");
             Run();
@@ -31,23 +34,44 @@ public class TMP : MonoBehaviour
     }
     public void Run()
     {
-        UpdateStats(UpdateMethodOne);
+        UpdateStats1(UpdateMethodOne1);
+        UpdateStats2(UpdateMethodOne2);
+
     }
-    void UpdateStats(UnityAction<GstuSpreadSheet> callback, bool mergedCells = false)
+    void UpdateStats1(UnityAction<GstuSpreadSheet> callback, bool mergedCells = false)
     {
-        SpreadsheetManager.Read(new GSTU_Search(data.associatedSheet, data.associatedWorksheet), callback, mergedCells);
+        SpreadsheetManager.Read(new GSTU_Search(data1.associatedSheet, data1.associatedWorksheet), callback, mergedCells);
     }
 
-    void UpdateMethodOne(GstuSpreadSheet ss)
+    void UpdateMethodOne1(GstuSpreadSheet ss)
     {
         int num = ss.rows.secondaryKeyLink.Count-1;
 
         for(int idx = 0; idx < num; idx++)
         {
-            data.UpdateStats(ss.rows[idx.ToString()], idx.ToString());
+            data1.UpdateStats(ss.rows[idx.ToString()], idx.ToString());
         }
 
-            
+
+    }
+
+    void UpdateStats2(UnityAction<GstuSpreadSheet> callback, bool mergedCells = false)
+    {
+        SpreadsheetManager.Read(new GSTU_Search(data2.associatedSheet, data2.associatedWorksheet), callback, mergedCells);
+    }
+
+    void UpdateMethodOne2(GstuSpreadSheet ss)
+    {
+        int num = ss.rows.secondaryKeyLink.Count - 1;
+        Debug.Log(num);
+
+        for (int idx = 0; idx < num; idx++)
+        {
+
+            data2.UpdateStats(ss.rows[idx.ToString()]);
+        }
+
+
     }
 
 }

@@ -9,6 +9,7 @@ using GoogleSheetsToUnity.ThirdPary;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
+[CreateAssetMenu(fileName = "QuestionSheet", menuName = "Scriptable Object/QuestionSheet", order = int.MaxValue)]
 public class QuestionSheet : ScriptableObject
 {
     public string associatedSheet = "";
@@ -24,7 +25,7 @@ public class QuestionSheet : ScriptableObject
                 case "Script":
                     {
                         GameManager.InGameData.QuestionDictionary[QuestionIDX] = list[i].value;
-                        Debug.Log($"{QuestionIDX}ÀÇ {list[i].value}");
+                        //Debug.Log($"{QuestionIDX}ÀÇ {list[i].value}");
                         break;
 
                     }
