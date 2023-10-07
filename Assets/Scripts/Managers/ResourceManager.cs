@@ -54,4 +54,5 @@ public class ResourceManager
     {
         _cache.Clear();
     }
+
 }

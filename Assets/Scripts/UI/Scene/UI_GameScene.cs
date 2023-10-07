@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
 using System.Collections.Generic;
-using Client;
+using static InGameDataManager;
 
 public class UI_GameScene : UI_Scene
 {
@@ -20,7 +20,10 @@ public class UI_GameScene : UI_Scene
     {
 
     }
-
+    private void Start()
+    {
+        Init();
+    }
     public override void Init()
     {
         base.Init();
@@ -48,7 +51,10 @@ public class UI_GameScene : UI_Scene
     }
     public void PlayList(int QuestionIDX)
     {
+        List<Answer> answers;
 
+        //answers = GameManager.InGameData.QuestionDictionary[QuestionIDX][];
+        
         Debug.Log(QuestionIDX);
     }
 

@@ -40,11 +40,22 @@ public class Define
         Drag,
         DragEnd,
     }
-
+    public enum Face
+    {
+        default1,
+        default2,
+        smile1,
+        smile2,
+        blank1,
+        blank2,
+        bad1,
+        bad2,
+        good1,
+        good2,
+    }
     public enum Scenes
     {
         Title,
-        Loby,
         Game,
     }
 

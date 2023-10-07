@@ -101,9 +101,13 @@ public class AnswerSheet : ScriptableObject
         if (!Empty)
         {
             GameManager.InGameData.AnswerDictionary[QuestionIDX][AnswerIDX].Add(answer);
-            Debug.Log($"QuestionIDX : {QuestionIDX}, AnswerIDX: {AnswerIDX}, ListCount {GameManager.InGameData.AnswerDictionary[QuestionIDX][AnswerIDX].Count}, Gender : {answer.Gender}, Person : {answer.Person}, Face : {answer.Face}, Script : {answer.Script}");
+            #if UNITY_EDITOR
+            //Debug.Log($"QuestionIDX : {QuestionIDX}, AnswerIDX: {AnswerIDX}, ListCount {GameManager.InGameData.AnswerDictionary[QuestionIDX][AnswerIDX].Count}, Gender : {answer.Gender}, Person : {answer.Person}, Face : {answer.Face}, Script : {answer.Script}");
+            #endif
         }
     }
+
+    
 
 }
 

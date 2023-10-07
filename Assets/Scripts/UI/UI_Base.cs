@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
-using Client;
 
 public abstract class UI_Base : MonoBehaviour
 {

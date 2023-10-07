@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class SelectionPopup : UI_Popup
 {
+    UI_GameScene uI_GameScene;
+    System.Random rand = new System.Random();
     const int SelectionNum = 4;
     enum Buttons
     {
@@ -26,10 +28,7 @@ public class SelectionPopup : UI_Popup
     int[] _bindedSelection = new int[SelectionNum];
 
     // Start is called before the first frame update
-    void Start()
-    {
-        //Init();
-    }
+    
 
 
     public override void Init()
@@ -39,13 +38,16 @@ public class SelectionPopup : UI_Popup
         Bind<TMP_Text>(typeof(Texts));
 
         data = GameManager.InGameData;
+        uI_GameScene = GameManager.UI.ShowSceneUI<UI_GameScene>();
+
         Txt_Setting();
         BindEventBtn();
 
+
     }
 
-    
 
+    
     #region Btn 
     void BindEventBtn()
     {
@@ -58,33 +60,51 @@ public class SelectionPopup : UI_Popup
 
     void Btn_Select0(PointerEventData evt)
     {
-        
-        GameManager.UI.ShowSceneUI<UI_GameScene>().PlayList(data.PopUseableQuestion(0));
+        int num = data.PopUseableQuestion(0);
+
+        if (data.AnswerDictionary.ContainsKey(num.ToString()))
+        {
+            int randrange = rand.Next(data.AnswerDictionary[num.ToString()].Count);
+            Debug.Log(randrange);
+            
+        }
         GameManager.UI.ClosePopupUI();
     }
     void Btn_Select1(PointerEventData evt)
     {
-        GameManager.UI.ShowSceneUI<UI_GameScene>().PlayList(data.PopUseableQuestion(1));
-
+        int num = data.PopUseableQuestion(1);
+        if (data.AnswerDictionary.ContainsKey(num.ToString()))
+        {
+            int randrange = rand.Next(data.AnswerDictionary[num.ToString()].Count);
+            Debug.Log(randrange);
+        }
         GameManager.UI.ClosePopupUI();
     }
     void Btn_Select2(PointerEventData evt)
     {
-        GameManager.UI.ShowSceneUI<UI_GameScene>().PlayList(data.PopUseableQuestion(2));
-
+        int num = data.PopUseableQuestion(2);
+        if (data.AnswerDictionary.ContainsKey(num.ToString()))
+        {
+            int randrange = rand.Next(data.AnswerDictionary[num.ToString()].Count);
+            Debug.Log(randrange);
+        }
         GameManager.UI.ClosePopupUI();
+
     }
     void Btn_Select3(PointerEventData evt)
     {
-        GameManager.UI.ShowSceneUI<UI_GameScene>().PlayList(data.PopUseableQuestion(3));
-
+        int num = data.PopUseableQuestion(3);
+        if (data.AnswerDictionary.ContainsKey(num.ToString()))
+        {
+            int randrange = rand.Next(data.AnswerDictionary[num.ToString()].Count);
+            Debug.Log(randrange);
+        }
         GameManager.UI.ClosePopupUI();
     }
 
     #endregion Btn 
 
     #region Txt
-
     void Txt_Setting()
     {
         InGameDataManager Data = GameManager.InGameData;
@@ -93,7 +113,6 @@ public class SelectionPopup : UI_Popup
         GetText((int)Texts.Select2Txt).text = Data.QuestionDictionary[Data.UseableQuestion[2].ToString()];
         GetText((int)Texts.Select3Txt).text = Data.QuestionDictionary[Data.UseableQuestion[3].ToString()];
     }
-
     #endregion Txt
 
 }

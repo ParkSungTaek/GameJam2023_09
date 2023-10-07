@@ -1,5 +1,4 @@
-using Client;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -17,13 +16,18 @@ public class GameManager : MonoBehaviour
     SoundManager _soundManager = new SoundManager();
     InGameDataManager _inGameDataManager = new InGameDataManager();
     UIManager _uiManager = new UIManager();
-    
+    NetworkManager _networkManager = new NetworkManager();
     public static ResourceManager Resource { get { return Instance._resourceManager; } }
     public static SoundManager Sound { get { return Instance._soundManager; } }
     public static InGameDataManager InGameData { get { return Instance._inGameDataManager; } }
     public static UIManager UI { get { return Instance._uiManager; } }
-    #endregion
+    public static NetworkManager Network { get {  return Instance._networkManager; } }
 
+    #endregion
+    private void Start()
+    {
+        Init();
+    }
     /// <summary> instance 생성, 산하 매니저들 초기화 </summary>
     static void Init()
     {
@@ -40,6 +44,7 @@ public class GameManager : MonoBehaviour
 
             _instance._soundManager.Init();
             _instance._inGameDataManager.Init();
+            _instance._networkManager.Init();
         }
 
     }
