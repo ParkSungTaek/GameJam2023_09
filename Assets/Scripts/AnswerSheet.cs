@@ -102,7 +102,7 @@ public class AnswerSheet : ScriptableObject
         {
             GameManager.InGameData.AnswerDictionary[QuestionIDX][AnswerIDX].Add(answer);
             #if UNITY_EDITOR
-            //Debug.Log($"QuestionIDX : {QuestionIDX}, AnswerIDX: {AnswerIDX}, ListCount {GameManager.InGameData.AnswerDictionary[QuestionIDX][AnswerIDX].Count}, Gender : {answer.Gender}, Person : {answer.Person}, Face : {answer.Face}, Script : {answer.Script}");
+            Debug.Log($"QuestionIDX : {QuestionIDX}, AnswerIDX: {AnswerIDX}, ListCount {GameManager.InGameData.AnswerDictionary[QuestionIDX][AnswerIDX].Count}, Gender : {answer.Gender}, Person : {answer.Person}, Face : {answer.Face}, Script : {answer.Script}");
             #endif
         }
     }

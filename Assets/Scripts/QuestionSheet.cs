@@ -26,7 +26,7 @@ public class QuestionSheet : ScriptableObject
                     {
                         GameManager.InGameData.QuestionDictionary[QuestionIDX] = list[i].value;
 #if UNITY_EDITOR
-                        //Debug.Log($"{QuestionIDX}ÀÇ {list[i].value}");
+                        Debug.Log($"{QuestionIDX}ÀÇ {list[i].value}");
 #endif        
                         break;
 

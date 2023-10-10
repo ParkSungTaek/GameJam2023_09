@@ -44,7 +44,10 @@ public class InGameDataManager
     public void Clear()
     {
         System.Random rand = new System.Random();
-        UseableQuestion = Enumerable.Range(0, QuestionDictionary.Count).ToList();
+        //UseableQuestion = Enumerable.Range(0, QuestionDictionary.Count).ToList();
+        ///지금은 11번 질문까지만 정상 작동 
+        UseableQuestion = Enumerable.Range(0, 12).ToList();
+
         UseableQuestion = UseableQuestion.OrderBy(x => rand.Next()).ToList();
         
     }
